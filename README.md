@@ -1,5 +1,9 @@
 # Pedagogical approach of the course Introduction to Bayesian analysis
 
+> Read this document and answer [these questions](https://github.com/VABAR/vibass_dev_introductory_training/issues/1). 
+> You can also edit this file to fix things directly, or open [an issue](https://github.com/VABAR/vibass_dev_introductory_training/issues/new/choose) in order to start a discussion or propose a potentially controversial change.
+
+
 ## Goal of the training
 
 > What participants will be able to __do__ after the training, that were not able to do before. Avoid verbs like _know_ or _understand_ and focus instead on what this knowledge or understanding enable people to perform.
@@ -38,19 +42,3 @@ At the end of the course, participants will be able to start using Bayesian stat
 - Target population: people with little to no previous knowledge of Bayesian statistics with some concrete motivation.
 
 	E.g. master/PhD students who are going to use or work with Bayesian statistics, professionals in various fields (medicine, biology, ecology, industry, etc.) wanting to improve their quantitative skills.
-
-
-## Questions
-
-Do you think that:
-
-1. the __goal of the training__ completely and accurately covers what we want the participant to achieve with the training?
-
-2. the __operational goals__ described above are necessary and sufficient to achieve the goal of the training?
-
-3. what we __actually do__ in the course is necessary and sufficient to achieve the operational goals?
-
-
-## Workflow
-
-Either edit this file to fix things directly, or open [an issue](https://github.com/VABAR/vibass_dev_introductory_training/issues/new/choose) in order to start a discussion or propose a potentially controversial change.
