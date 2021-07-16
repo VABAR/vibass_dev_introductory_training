@@ -49,3 +49,8 @@ Do you think that:
 2. the __operational goals__ described above are necessary and sufficient to achieve the goal of the training?
 
 3. what we __actually do__ in the course is necessary and sufficient to achieve the operational goals?
+
+
+## Workflow
+
+Either edit this file to fix things directly, or open [an issue](https://github.com/VABAR/vibass_dev_introductory_training/issues/new/choose) in order to start a discussion or propose a potentially controversial change.
