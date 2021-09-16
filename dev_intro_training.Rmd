@@ -12,6 +12,11 @@ output:
       countIncrementalSlides: false
 ---
 
+```{r broadcast, echo=FALSE}
+xaringanExtra::use_broadcast()
+```
+
+
 ```{r setup, include = FALSE, cache = FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
