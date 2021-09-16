@@ -1,0 +1,371 @@
+---
+title: "Design of the introductory Bayesian training"
+author: "VIBASS organising comitee"
+institute: "Universitat de València, Bioss Scotland, Cirad"
+date: "2021-09-15"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE, cache = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = FALSE
+)
+
+pacman::p_load(
+  tidyverse,
+  hrbrthemes
+)
+
+theme_set(theme_ipsum())
+```
+
+# Objectives of the discussion
+
+1. Make sure that the __contents__ training program are based on __solid pedagogical foundations__
+
+2. Describe these foundations, the criteria and the choices in a manuscript
+
+3. Improve the training accordingly
+
+
+???
+
+1. rather than a random collection of contents based on convenience or habit
+
+2. eventually to be published and disseminated
+
+
+---
+
+# Operational approach to training design
+
+.pull-left[
+- Analyse the __needs__ of the target participants
+
+- Define a general __objective__ of the training
+
+- Split into more detailed __operational goals__
+
+- Determine __contents__    
+]
+
+
+.pull-right[
+```{r triangle, fig.width = 4, fig.height = 4}
+triangle_dat <- 
+  tibble(
+    id = rep(factor(1:4), each = 4),
+    x = unlist(map(1:4, ~ .x * c(-1, -1, 1, 1) + c(0, 1, -1, 0))),
+    y = unlist(map(1:4, ~ c(8, 10, 10, 8) - 2*.x ))
+  )
+
+labels_dat <- 
+  tibble(
+    x = rep(0, 4),
+    y = .7 + 2 * (0:3),
+    lab = c("Contents", "Operational Goals", "Objective", "Needs")
+  )
+
+ggplot(triangle_dat, aes(x, y)) +
+  geom_polygon(
+    aes(fill = id),
+    show.legend = FALSE
+  ) +
+  geom_text(
+    data = labels_dat,
+    aes(label = lab)
+  ) +
+  coord_fixed() +
+  scale_fill_manual(values = paste0("grey", 50 + 15*(3:0))) +
+  theme_void()
+
+```
+
+]
+
+> Focus on what participants should be able to **do** after the training, rather on what they should __know__. Use __action__ verbs _(perform_, _compute_, _write_, _summarise_, _analyse_, _evaluate_, ...)
+
+???
+
+- Graduate-level people who require an introduction to Bayesian stats.
+
+- We have a very diverse population, but they are grown-ups (ranging from master students to professionals), they have some background in science or humanities, some general culture and a high-school level in mathematics.
+
+
+Disclaimer: I do not pretend for a moment to teach you how to teach nor prepare courses. Every one of you have __far__ more teaching experience than me. But I learned this approach from other teachers with a lot of experience as well, and I find it useful.
+
+
+- We typically think: they should __know__ the basic axioms of probability, or the total probability theorem. But, for what? where exactly, in their practice, will they use them? For instance, for __writing__ the expression of the posterior distribution in an analytical problem. That is the action, the operational goal, for which they need to know something. But the objective is not the knowledge in itself, but the ability to __do__ something.
+
+- This allows thinking backwards. Once we know what we want them to __do__, we can more easily identify what concepts and knowledge are necessary.
+E.g. The total probability theorem would be necessary under a goal of writing posterior expressions analytically, but not in a training for Bayesian linear regression with INLA.
+
+- More engaging and motivating for the participants, who are more aware of __why__ they are being told about something and immediately see their progress in practical terms.
+
+- Easier to evaluate and to measure progress.
+
+Disclaimer 2: I believe strongly in the value of knowledge in itself, without an immediate application!! However, for the design of short trainings, this approach is useful.
+
+
+---
+# What have we done
+
+I provided a draft version for the _Global Objective_ and _Operational Goals_ [here](https://github.com/VABAR/vibass_dev_introductory_training), based on the current course contents and asked for feedback [here](https://github.com/VABAR/vibass_dev_introductory_training/issues/1)
+
+???
+
+Effectively, working backwards. Now trying to make a revision in the forward direction.
+
+---
+class: inverse, middle, center
+
+# Goal of the training
+
+---
+
+> At the end of the course, participants will be able to start using Bayesian statistics in their field, having acquired the foundations needed to learn and apply more specific methods and models.
+
+David: too ambitious, but then ok.
+
+Anabel: too ambitious. Rather: "participants would be able to __think__ in the implementation..."
+
+Carmen: Too ambitious. "...start using Bayesian statistics __in simple models__..."
+
+Mark: such a course is all about __understanding the possibilities__, and getting idea of __where to go next__
+
+
+???
+
+Formulation: _think_ of doing is not doing. Can we reformulate as, for instance, _adapt published models to their case study_?
+
+We have to be careful in the formulation of our objective, as this has implications downstream: we need to translate the objective into operational goals and contents. Are we really teaching to adapt published models to new case studies?
+
+How can we really synthesise the one thing participants are able to __do__ after the training?
+
+Are we ok with the addition of _in simple models_?
+
+
+I like Mark's picture of _understanding the possibilities_ and _knowing where to go next_.
+I think our working version of the Goal is the __operational consequence__ of this idea.
+What are we able to __do__ when we understand the possibilities? - we can effectively __start using__ Bayesian statistics, perhaps in simple models at first. But because __we now where to go next__, we can __learn and apply__ more specific models.
+
+
+
+---
+class: inverse, middle, center
+
+# Operational goals (OG's)
+
+---
+# General comments
+
+David: [the list](https://github.com/VABAR/vibass_dev_introductory_training#operational-goals) is too ambitious. 
+
+Virgilio: Add _understand a Bayesian analysis in practice_. I.e. identify the model, evaluate priors, etc. as presented in research papers (for GLM and some GLMMs)
+
+Carmen: Add, _Extract practical information from analytical posterior distributions_.
+
+
+???
+
+
+- Translate "_understand_" into actions. What does _identify the model_ mean? like, distinguishing between LM, GLM, GLMM, GAM, etc.? 
+
+    If so, we need to teach how to do it, make some exercises towards that goal, etc. E.g., picking examples from the literature and discuss them, explain them, test them. 
+    
+    The same with _evaluate priors_. What is it exactly? what do we want them to do? to say whether a prior is reasonable or not? Then we should do exercises in that direction.
+
+- Carmen, with _practical information_ you mean computing summary statistics like the mean, sd or probabilities of intervals?
+
+
+---
+# Operational goal 1
+
+> Identify the "Bayesian building blocks" (prior, likelihood, posterior, predictive) in any Bayesian analysis and interpret their meaning correctly.
+
+
+???
+
+Looks like we all agree on this one.
+
+
+---
+# Operational goal 2
+
+> Assess the appropriateness of the basic distributions from the exponential family for the various types of data (count, binary, continuous).
+
+Carmen: Would it be more appropriate to introduce normal data than continuous data?
+
+???
+
+I focused on data __types__ rather than on their distribution. Count data, not Poisson or negative binomial. Binary, not Binomial. Etc.
+_Appropriate_ here is used in a weak sense. Using the Normal distribution for continuous data is _appropriate_ concerning the type, not necessarily providing a good fit.
+The goodness of fit needs to be evaluated in the context of a model. Can't be done with the data alone. Down this road we go into model diagnostics and evaluation, which I think it is beyond the scope of the course.
+
+
+---
+# Operational goals 3 and 4
+
+> Summarise inferences and predictions using random samples.
+
+> Obtain samples of functions of parameters using random samples.
+
+David: include the idea that random samples are extracted from the posterior distribution of the unknown.
+
+
+Carmen: Merge with 3, into: 
+
+> Summarise inferences and predictions of quantities of interest and derived functions using random samples from relevant probability distributions.
+
+
+???
+
+David, elaborate.
+
+Carmen, ok?
+
+
+---
+# Operational goals 5 and 6
+
+
+> Interpret the information contained in a probability distribution by visual inspection of its density or mass function.
+
+> Assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions.
+
+Carmen: combine into one.
+
+???
+
+
+> Interpret the information contained in a probability distribution and assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions. 
+
+
+---
+# Operational goal 7
+
+> Synthesise the main characteristics of the three basic methods for Bayesian computation: analytical conjugate derivations, Importance Sampling and Metropolis Hastings.
+
+Carmen: If we worked with Gibbs, it should appear at some point.
+
+???
+
+Actually, we didn't teach Gibbs. We can reformulate as _analytical_, _IS_, and _MCMC_ ? 
+Essentially, Gibbs or MH, or HMC, all give markov chains from the posteriors. For the operational goal of synthesising results, the method is irrelevant.
+Perhaps not so much for __evaluating the quality of the chains__. But that's a different operational goal.
+
+
+---
+# Operational goals 8 and 9
+
+> Adapt basic IS and MH algorithms for fitting (generalised) linear regression models by sequentially sampling from each of them.
+
+> Distinguish the proposal distribution in Importance Sampling from the prior distribution, and assess its performance using the effective sample size.
+
+
+Anabel: Too much. Know the methods, ok, but not to apply or completely understand.
+
+
+???
+
+I agree. I have been conducting applied Bayesian studies for years and never
+used this knowledge in practice (only through the software I use). Is this really
+necessary for achieving [our Objective](https://github.com/VABAR/vibass_dev_introductory_training#goal-of-the-training)?
+
+
+---
+# Operational goal 10
+
+>  Fit hierarchical models with Bayesian software like INLA or BayesX.
+
+David: INLA, [BayesX](https://github.com/VABAR/vibass/issues/7), too much to be incorporated in here
+
+Carmen: delete _...like INLA or BayesX_ in order to be more general.
+
+
+???
+
+- We can remove the explicit mention to INLA and BayesX (by the way, [R2BayesX has been archived on CRAN and was last updated in 2017](https://github.com/VABAR/vibass/issues/7)). But the most important thing is whether we think that _fitting hierarchical models with Bayesian software_ is strictly __necessary__ (of course, it's nice to have, but...) for our global objective.
+
+    Are hierarchical models any more fundamental than, e.g. non-parametric models, or time-series models, or survival models, or...?
+    Perhaps, for the sake of "understanding the possibilities" and "knowing where to go next" we should rather invest this slot in giving an overview of common models and point to relevant bibliography and software?
+    
+    Implications on the training contents. Rather than a practical about fitting hierarchical models, we would rather do a practical were students should identify the appropriate model for a given case study.
+
+
+---
+
+# Is what we do necessary and sufficient?
+
+David: Yes, we are fine.
+
+Anabel: Yes, but not enough time to achieve.
+
+Mark: include something about understanding the place of Bayesian modelling in the general wider landscape of data analysis
+
+Virgilio: More hands-on exercises and computer labs. Reduce theory.
+
+Carmen: Agree with Mark. _Understand the ... differences between Bayesian and frequentist analyses..._
+
+Carmen: More emphasis on the difference between Bayesian and frequentist methods. Introduce hypothesis testing in a simple and conceptual way.
+
+???
+
+_understanding_ the place of Bayesian modelling... for doing what exactly? 
+
+    what can you, who "understand the place" can __do__ that others who don't "understand the place" can't?
+
+_understanding_ the difference between Bayesian and frequentist methods... for doing what exactly?
+
+    do we want them to interpret correctly credible and confidence intervals? Is the correct interpretation of CIs necessary for our stated goal of start using Bayesian stats?
+
+_introduce hypothesis testing_... for doing what exactly?
+
+    do we want them to __conduct__ hypothesis testing? in what situations? or rather we want them to correctly __interpret__ published Bayesian hypothesis tests? These two OGs translate into very different course contents!
+
+what are the __operational goals__? what do we want them to be able to __do__ afterwards?
+
+---
+# Other comments
+
+Anabel: state prerequisites in terms of what they need. Add some knowledge about probability, stats and sampling.
+
+Carmen: Agrees. Probability, basic statistics and some R. Not sampling.
+
+
+---
+class: inverse, middle, center
+
+# Conclusions (WIP)
+
+- Reformulate the objective as
+
+    > At the end of the course, participants will be able to start using __simple__ Bayesian statistical __models__ in their field, having acquired the foundations needed to learn and understand more specific methods and models.
+
+- Add OG about _summarising inferences and predictions from analytical probability distributions_
+
+- Merge OGs 3 and 4
+
+- Merge OGs 5 and 6
+
+- Replace MH by MCMC in OG7
+
+- Add OG about _identifying model structures in published research_ (LM, GLM, GLMM, GAM)?
+
+- Add OG about _prior evaluation_
+
+- Remove OG8 and OG9 about _adapting IS and MH algorithms and evaluating the performance of the proposal distribution_
+
+- Remove OG11 about _fitting hierarchical models_
+
+
+???
+
+These are all proposals derived from the responses. Validate or reformulate.
