@@ -23,10 +23,8 @@ knitr::opts_chunk$set(
   cache = FALSE
 )
 
-pacman::p_load(
-  tidyverse,
-  hrbrthemes
-)
+library(tidyverse)
+library(hrbrthemes)
 
 theme_set(theme_ipsum())
 ```
