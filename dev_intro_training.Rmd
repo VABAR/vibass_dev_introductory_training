@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 
 library(tidyverse)
 library(hrbrthemes)
+library(rmarkdown)
 
 xaringanExtra::use_broadcast()
 xaringanExtra::use_editable(id = 20210916, expires = 14)
