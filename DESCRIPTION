@@ -41,6 +41,7 @@ Description: This is a fake package description, only to allow GitHub Actions
 License: GPL-3
 Depends: R (>= 3.6)
 Imports: 
+    distill,
     knitr,
     rlang,
     rmarkdown,
