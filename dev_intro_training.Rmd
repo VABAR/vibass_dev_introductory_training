@@ -349,10 +349,16 @@ class: inverse, middle, center
 
 # Conclusions (WIP)
 
+
+---
+
 - Reformulate the objective as
 
+.can-edit.key-Objective[
     > At the end of the course, participants will be able to start using __simple__ Bayesian statistical __models__ in their field, having acquired the foundations needed to learn and understand more specific methods and models.
+]
 
+.can-edit.key-operationalGoals[
 - Add OG about _summarising inferences and predictions from analytical probability distributions_
 
 - Merge OGs 3 and 4
@@ -368,6 +374,7 @@ class: inverse, middle, center
 - Remove OG8 and OG9 about _adapting IS and MH algorithms and evaluating the performance of the proposal distribution_
 
 - Remove OG11 about _fitting hierarchical models_
+]
 
 
 ???
