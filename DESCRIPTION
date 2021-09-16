@@ -43,6 +43,7 @@ Depends: R (>= 3.6)
 Imports: 
     knitr,
     rlang,
+    rmarkdown,
     tidyverse,
     xaringan,
     xaringanExtra (>= 0.2.4)
