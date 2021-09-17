@@ -348,7 +348,7 @@ Carmen: Agrees. Probability, basic statistics and some R. Not sampling.
 ---
 class: inverse, middle, center
 
-# Conclusions (WIP)
+# Conclusions (Work-in-progress)
 
 
 ---
