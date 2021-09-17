@@ -1,0 +1,10 @@
+---
+title: "Pedagogical approach of the course Introduction to Bayesian analysis"
+description: |
+  Designing an introductory course to Bayesian inference.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+

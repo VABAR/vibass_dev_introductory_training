@@ -10,10 +10,9 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: "16:9"
 ---
 
-```{r xaringan-extras, echo=FALSE}
-```
 
 ```{r setup, include = FALSE, cache = FALSE}
 knitr::opts_chunk$set(
@@ -23,10 +22,14 @@ knitr::opts_chunk$set(
 
 library(tidyverse)
 library(hrbrthemes)
+library(xaringanExtra)
 
 xaringanExtra::use_broadcast()
 xaringanExtra::use_editable(id = 20210916, expires = 14)
-
+xaringanExtra::use_share_again()
+xaringanExtra::style_share_again(
+  share_buttons = c("twitter", "linkedin", "pocket")
+)
 theme_set(theme_ipsum())
 ```
 
@@ -356,6 +359,7 @@ class: inverse, middle, center
 
 .can-edit.key-Objective[
     > At the end of the course, participants will be able to start using __simple__ Bayesian statistical __models__ in their field, having acquired the foundations needed to learn and understand more specific methods and models.
+    
 ]
 
 .can-edit.key-operationalGoals[

@@ -2,13 +2,6 @@
 title: "Pedagogical approach of the course Introduction to Bayesian analysis"
 description: |
   Design of the introductory Bayesian training.
-author:
-  - name: VIBASS
-    url: http://vabar.es/vibass
-    affiliation: València Bayesian Research Group
-    affiliation_url: http://vabar.es
-date: "`r Sys.Date()`"
-output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}

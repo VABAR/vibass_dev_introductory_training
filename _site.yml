@@ -1,0 +1,12 @@
+name: "Introduction to Bayesian Learning"
+title: "Design VIBASS introductory course"
+description: |
+  Design VAIBASS introductory course
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
