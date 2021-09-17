@@ -6,6 +6,7 @@
 
 ## Goal of the training
 
+
 > What participants will be able to __do__ after the training, that were not able to do before. Avoid verbs like _know_ or _understand_ and focus instead on what this knowledge or understanding enable people to perform.
 
 At the end of the course, participants will be able to start using Bayesian statistics in their field, having acquired the foundations needed to learn and understand more specific methods and models.
