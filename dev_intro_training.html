@@ -1,34 +1,38 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Design of the introductory Bayesian training</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="VIBASS organising comitee" />
+    <meta name="date" content="2021-09-15" />
+    <script src="libs/header-attrs-2.10.6/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="libs/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="libs/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast-0.2.4/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast-0.2.4/broadcast.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"20210916","expires":14}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <link href="libs/editable-0.2.4/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.4/editable.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Design of the introductory Bayesian training
+### VIBASS organising comitee
+### Universitat de València, Bioss Scotland, Cirad
+### 2021-09-15
+
 ---
-title: "Design of the introductory Bayesian training"
-author: "VIBASS organising comitee"
-institute: "Universitat de València, Bioss Scotland, Cirad"
-date: "2021-09-15"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
 
-```{r xaringan-extras, echo=FALSE}
-```
 
-```{r setup, include = FALSE, cache = FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE,
-  cache = FALSE
-)
 
-library(tidyverse)
-library(hrbrthemes)
 
-xaringanExtra::use_broadcast()
-xaringanExtra::use_editable(id = 20210916, expires = 14)
 
-theme_set(theme_ipsum())
-```
 
 # Objectives of the discussion
 
@@ -62,39 +66,11 @@ theme_set(theme_ipsum())
 
 
 .pull-right[
-```{r triangle, fig.width = 4, fig.height = 4}
-triangle_dat <- 
-  tibble(
-    id = rep(factor(1:4), each = 4),
-    x = unlist(map(1:4, ~ .x * c(-1, -1, 1, 1) + c(0, 1, -1, 0))),
-    y = unlist(map(1:4, ~ c(8, 10, 10, 8) - 2*.x ))
-  )
-
-labels_dat <- 
-  tibble(
-    x = rep(0, 4),
-    y = .7 + 2 * (0:3),
-    lab = c("Contents", "Operational Goals", "Objective", "Needs")
-  )
-
-ggplot(triangle_dat, aes(x, y)) +
-  geom_polygon(
-    aes(fill = id),
-    show.legend = FALSE
-  ) +
-  geom_text(
-    data = labels_dat,
-    aes(label = lab)
-  ) +
-  coord_fixed() +
-  scale_fill_manual(values = paste0("grey", 50 + 15*(3:0))) +
-  theme_void()
-
-```
+![](dev_intro_training_files/figure-html/triangle-1.png)&lt;!-- --&gt;
 
 ]
 
-> Focus on what participants should be able to **do** after the training, rather on what they should __know__. Use __action__ verbs _(perform_, _compute_, _write_, _summarise_, _analyse_, _evaluate_, ...)
+&gt; Focus on what participants should be able to **do** after the training, rather on what they should __know__. Use __action__ verbs _(perform_, _compute_, _write_, _summarise_, _analyse_, _evaluate_, ...)
 
 ???
 
@@ -134,7 +110,7 @@ class: inverse, middle, center
 
 ---
 
-> At the end of the course, participants will be able to start using Bayesian statistics in their field, having acquired the foundations needed to learn and apply more specific methods and models.
+&gt; At the end of the course, participants will be able to start using Bayesian statistics in their field, having acquired the foundations needed to learn and apply more specific methods and models.
 
 David: too ambitious, but then ok.
 
@@ -192,7 +168,7 @@ Carmen: Add, _Extract practical information from analytical posterior distributi
 ---
 # Operational goal 1
 
-> Identify the "Bayesian building blocks" (prior, likelihood, posterior, predictive) in any Bayesian analysis and interpret their meaning correctly.
+&gt; Identify the "Bayesian building blocks" (prior, likelihood, posterior, predictive) in any Bayesian analysis and interpret their meaning correctly.
 
 
 ???
@@ -203,7 +179,7 @@ Looks like we all agree on this one.
 ---
 # Operational goal 2
 
-> Assess the appropriateness of the basic distributions from the exponential family for the various types of data (count, binary, continuous).
+&gt; Assess the appropriateness of the basic distributions from the exponential family for the various types of data (count, binary, continuous).
 
 Carmen: Would it be more appropriate to introduce normal data than continuous data?
 
@@ -217,16 +193,16 @@ The goodness of fit needs to be evaluated in the context of a model. Can't be do
 ---
 # Operational goals 3 and 4
 
-> Summarise inferences and predictions using random samples.
+&gt; Summarise inferences and predictions using random samples.
 
-> Obtain samples of functions of parameters using random samples.
+&gt; Obtain samples of functions of parameters using random samples.
 
 David: include the idea that random samples are extracted from the posterior distribution of the unknown.
 
 
 Carmen: Merge with 3, into: 
 
-> Summarise inferences and predictions of quantities of interest and derived functions using random samples from relevant probability distributions.
+&gt; Summarise inferences and predictions of quantities of interest and derived functions using random samples from relevant probability distributions.
 
 
 ???
@@ -240,22 +216,22 @@ Carmen, ok?
 # Operational goals 5 and 6
 
 
-> Interpret the information contained in a probability distribution by visual inspection of its density or mass function.
+&gt; Interpret the information contained in a probability distribution by visual inspection of its density or mass function.
 
-> Assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions.
+&gt; Assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions.
 
 Carmen: combine into one.
 
 ???
 
 
-> Interpret the information contained in a probability distribution and assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions. 
+&gt; Interpret the information contained in a probability distribution and assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions. 
 
 
 ---
 # Operational goal 7
 
-> Synthesise the main characteristics of the three basic methods for Bayesian computation: analytical conjugate derivations, Importance Sampling and Metropolis Hastings.
+&gt; Synthesise the main characteristics of the three basic methods for Bayesian computation: analytical conjugate derivations, Importance Sampling and Metropolis Hastings.
 
 Carmen: If we worked with Gibbs, it should appear at some point.
 
@@ -269,9 +245,9 @@ Perhaps not so much for __evaluating the quality of the chains__. But that's a d
 ---
 # Operational goals 8 and 9
 
-> Adapt basic IS and MH algorithms for fitting (generalised) linear regression models by sequentially sampling from each of them.
+&gt; Adapt basic IS and MH algorithms for fitting (generalised) linear regression models by sequentially sampling from each of them.
 
-> Distinguish the proposal distribution in Importance Sampling from the prior distribution, and assess its performance using the effective sample size.
+&gt; Distinguish the proposal distribution in Importance Sampling from the prior distribution, and assess its performance using the effective sample size.
 
 
 Anabel: Too much. Know the methods, ok, but not to apply or completely understand.
@@ -287,7 +263,7 @@ necessary for achieving [our Objective](https://github.com/VABAR/vibass_dev_intr
 ---
 # Operational goal 10
 
->  Fit hierarchical models with Bayesian software like INLA or BayesX.
+&gt;  Fit hierarchical models with Bayesian software like INLA or BayesX.
 
 David: INLA, [BayesX](https://github.com/VABAR/vibass/issues/7), too much to be incorporated in here
 
@@ -347,7 +323,7 @@ Carmen: Agrees. Probability, basic statistics and some R. Not sampling.
 ---
 class: inverse, middle, center
 
-# Conclusions (Work-in-progress)
+# Conclusions (WIP)
 
 
 ---
@@ -355,7 +331,7 @@ class: inverse, middle, center
 - Reformulate the objective as
 
 .can-edit.key-Objective[
-    > At the end of the course, participants will be able to start using __simple__ Bayesian statistical __models__ in their field, having acquired the foundations needed to learn and understand more specific methods and models.
+    &gt; At the end of the course, participants will be able to start using __simple__ Bayesian statistical __models__ in their field, having acquired the foundations needed to learn and understand more specific methods and models.
 ]
 
 .can-edit.key-operationalGoals[
@@ -380,3 +356,126 @@ class: inverse, middle, center
 ???
 
 These are all proposals derived from the responses. Validate or reformulate.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
