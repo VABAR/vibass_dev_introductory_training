@@ -2,7 +2,7 @@ name: "Introduction to Bayesian Learning"
 title: "Design VIBASS introductory course"
 description: |
   Design VAIBASS introductory course
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
