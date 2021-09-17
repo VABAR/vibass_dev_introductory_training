@@ -17,7 +17,6 @@ xaringanExtra::use_share_again()
 ```
 
 
-
 ```{r embed-xaringan-presentation, fig.cap="[Slides](dev_intro_training.html)"}
 xaringanExtra::embed_xaringan(url = "dev_intro_training.html", ratio = "16:9")
 ```

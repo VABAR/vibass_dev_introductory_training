@@ -25,6 +25,11 @@ jobs:
         with:
           cache-version: 3
 
+      - name: Install dependencies
+        run: |
+          pak::local_install_dev_deps(upgrade = TRUE)
+        shell: Rscript {0}
+
       - name: Render Rmarkdown files
         run: |
           Rscript -e 'rownames(installed.packages())'
