@@ -3,13 +3,22 @@
 > Read this document and answer [these questions](https://github.com/VABAR/vibass_dev_introductory_training/issues/1). 
 > You can also edit this file to fix things directly, or open [an issue](https://github.com/VABAR/vibass_dev_introductory_training/issues/new/choose) in order to start a discussion or propose a potentially controversial change.
 
+- Meeting 2021-12-17: went through the proposal and the answers to the previous
+questions, and revised the Goal of the training and the operational goals.
+Here is a [summary of the conclusions of the meeting](20211227_minutes.md).
+
+Below are the current goal and operational goals after incorporating all the
+contributions.
 
 ## Goal of the training
 
 
 > What participants will be able to __do__ after the training, that were not able to do before. Avoid verbs like _know_ or _understand_ and focus instead on what this knowledge or understanding enable people to perform.
 
-At the end of the course, participants will be able to start using Bayesian statistics in their field, having acquired the foundations needed to learn and understand more specific methods and models.
+At the end of the course, participants will be able to start applying Bayesian
+methods to simple models in their field, having acquired an understanding of
+Bayesian concepts and becoming aware of the possibilities for more specific and
+more complex methods for in-depth analysis.
 
 
 ## Operational goals
@@ -20,22 +29,36 @@ At the end of the course, participants will be able to start using Bayesian stat
 
 1. Assess the appropriateness of the basic distributions from the exponential family for the various types of data (count, binary, continuous).
 
-1. Summarise inferences and predictions using random samples.
+1. Summarise inferences and predictions of quantities of interest and derived
+functions using random samples from posterior probability distributions.
 
-1. Obtain samples of functions of parameters using random samples.
+1. Interpret the information contained in a posterior probability distribution by
+visual inspection of its shape in a plot of the density or mass function.
 
-1. Interpret the information contained in a probability distribution by visual inspection of its density or mass function.
+1. Synthesise the main characteristics of three core approaches for Bayesian
+computation: analytical conjugate derivations, Importance Sampling and Markov
+Chain Monte Carlo.
 
-1. Assess the compatibility or discrepancy between probability distributions by visual inspection of their densities or mass functions.
+1. Apply basic Importance Sampling and MCMC methods via available software for
+fitting regression models
 
-1. Synthesise the main characteristics of the three basic methods for Bayesian computation: analytical conjugate derivations, Importance Sampling and Metropolis Hastings. 
+1. Assess the convergence quality of the Markov Chains by visual inspection 
+their traces and by convergence indices like $\hat R$.
 
-1. Adapt basic IS and MH algorithms for fitting (generalised) linear regression models by sequentially sampling from each of them.
+1. Summarise the landscape of available software packages, and their
+characteristics.
 
-1. Distinguish the _proposal_ distribution in Importance Sampling from the _prior_ distribution, and assess its performance using the effective sample size.
+  Specifically, whether they are flexible probabilistic programming languages
+  (Bugs, Stan, Nimble, ...) or interfaces to a closed set of families of 
+  statistical models, and their relative strengths and weaknesses.
 
-1. Fit hierarchical models with Bayesian software like INLA or BayesX.
+1. Identify in which situations Bayesian analysis is particularly advantageous
+with respect to frequentist alternatives.
 
+  Specifically, the direct probabilistic interpretation of results, the treatment
+  of the uncertainty in the model parameters (e.g. proper propagation, rather
+  than marginalisation using MLEs), not relying on asymptotic theory,
+  the probabilistic approach to hypothesis testing.
 
 
 ## Pre-requisites
