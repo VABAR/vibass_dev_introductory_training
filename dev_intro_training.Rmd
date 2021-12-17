@@ -1,7 +1,7 @@
 ---
 title: "Design of the introductory Bayesian training"
 author: "VIBASS organising comitee"
-institute: "Universitat de València, Bioss Scotland, Cirad"
+institute: "Universitat de València, Bioss Scotland, Cirad, UCLM, Generalitat Valenciana"
 date: "2021-09-15"
 output:
   xaringan::moon_reader:
