@@ -14,7 +14,7 @@ xaringanExtra::use_share_again()
 xaringanExtra::embed_xaringan(url = "dev_intro_training.html", ratio = "16:9")
 ```
 
-[Slides](dev_intro_training.html)
+[Slides 2021-12-17](dev_intro_training.html)
 
-
+[Course contents](contents.html)
 

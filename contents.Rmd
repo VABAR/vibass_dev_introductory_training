@@ -1,0 +1,67 @@
+---
+title: "Contents and schedule"
+description: |
+  Contents and schedule of the training course.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r packages}
+pacman::p_load(
+  formattable,
+  tidyverse,
+  kableExtra
+)
+```
+
+
+# Programme
+
+```{r sessions}
+sessions <- tibble(
+  Session = seq.int(17),
+  Day = rep(1:2L, times = 9:8),
+  Modality = c("Theory", rep(c("Theory", "Practical"), times = 8)),
+  Title = c(
+    "Introduction to Bayesian Statistics...all you need is Probability",
+    "Binomial data",
+    "Practical binomial data",
+    "Inference with simulated samples",
+    "Inference with simulated samples",
+    "Count data",
+    "Count data",
+    "Normal data",
+    "Normal data",
+    "Numerical approaches",
+    "The Metropolis-Hastings algorithm",
+    "Statistical Modelling",
+    "Linear models",
+    "Bayesian approach to LMs, GLM’s",
+    "Gneneralised linear models",
+    "Hierarchical Bayesian models",
+    "Introduction to Bayesian hierarchical models"
+  ),
+  Lecturer = c("CA", rep(c("CA", "FM"), times = 4), rep(c("MB", "VG"), times = 4))
+)
+```
+
+```{r}
+formattable(
+  sessions,
+  align = c("r", "r", "l", "l", "l"),
+  Modality = color_tile("customGreen0", "lightblue")
+)
+```
+
+
+
+
+# Companion R-package
+
+- development site: https://github.com/VABAR/Vibass
+
+- dissemination site: http://vabar.es/vibass/
+
+
